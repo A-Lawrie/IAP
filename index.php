@@ -7,9 +7,16 @@
 </head>
 <body>
     <h1>This is my first page</h1>
+<<<<<<< HEAD
     <?php
     require_once "load.php";
     print $OBJ->user_age("Alex", 2004);
     ?>
+=======
+<?php
+require_once "load.php";
+print $Obj->user_age("Alex", 2004);
+?>
+>>>>>>> colleague/main
 </body>
 </html>
