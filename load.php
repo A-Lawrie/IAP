@@ -1,11 +1,42 @@
 <?php
-<<<<<<< HEAD
-require_once "fnc.php";
 
-$OBJ= new fnc();
-=======
+// Class Auto Load 
 
-require_once "user_details.php";
+function classAutoLoad($classname){
 
-$Obj = new user_details();
->>>>>>> colleague/main
+    $directories = ["contents", "layouts", "menus"];
+
+    foreach($directories AS $dir){
+        $filename = dirname(__FILE__) . DIRECTORY_SEPARATOR . $dir . DIRECTORY_SEPARATOR . $classname . ".php";
+        if(file_exists($filename) AND is_readable($filename)){
+            require_once $filename;
+        }
+    }
+}
+
+spl_autoload_register('classAutoLoad');
+
+// Create instances of all classes
+    $ObjLayouts = new layouts();
+    $ObjMenus = new menus();
+    $ObjHeadings = new headings();
+
+
+
+
+
+
+// print 
+// print "<br>";
+// print "<br>";
+// print $_SERVER["PHP_SELF"];
+// print "<br>";
+// print "<br>";
+// print basename($_SERVER["PHP_SELF"]);
+// print "<br>";
+// print "<br>";
+// if(file_exists("index.php") AND is_readable("index.php")){
+//     print "yes";
+// }else{
+//     print "no";
+// }
